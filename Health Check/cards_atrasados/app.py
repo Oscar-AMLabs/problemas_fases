@@ -21,7 +21,6 @@ def pipefy_send(query):
         print(response.text)
         return None
     
-
 def buscar_dados_pipefy_cards_atrasados(phase_id):
     query = f'''query {{
         phase(id: "{phase_id}") {{

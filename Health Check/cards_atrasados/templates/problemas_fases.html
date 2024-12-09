@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas P8, E01, E02 e E03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            flex-grow: 1;
+            overflow-x: auto; /* Adicionado para permitir rolagem horizontal */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 40px;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: green;
+            text-size-adjust: 100px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .filter-buttons {
+            margin-bottom: 20px;
+        }
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filter-button:hover {
+            background-color: #0056b3;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            width: 98%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .immutable {
+            background-color: #1d1d1d;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        .tempo-column {
+            width: 150px; /* Defina a largura desejada aqui */
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+        #comment-modal textarea, #payment-modal input[type="date"], #payment-modal input[type="file"] {
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 97%;
+        }
+        #comment-modal button, #payment-modal button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #submit-btn, #submit-payment-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        #cancel-btn, #cancel-payment-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        #submit-btn:hover, #submit-payment-btn:hover {
+            background-color: #0056b3;
+        }
+        #cancel-btn:hover, #cancel-payment-btn:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <script>
+        function refreshPage() {
+            window.location.reload();
+        }
+        setInterval(refreshPage, 30000); // Atualiza a cada 30 segundos
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cards Atrasados</h1>
+        {% for pipe, cards in stuck_cards.items() %}
+        <h2>{{ pipe }}</h2>
+        {% if cards %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Fase</th>
+                    <th>Tempo na Fase</th>
+                    <th>ID do Cartão</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for card in cards %}
+                <tr>
+                    <td>{{ card.phase }}</td>
+                    <td>{{ card.time_in_phase }}</td>
+                    <td><a href="https://app.pipefy.com/open-cards/{{ card.card_id }}" target="_blank">{{ card.card_id }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-cards">Sem cards atrasados para o Pipe: {{ pipe }}!</p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

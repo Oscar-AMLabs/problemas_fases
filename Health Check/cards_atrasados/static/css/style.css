@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.grafico {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.grafico h2 {
+    text-align: center;
+}

@@ -1,8 +1,6 @@
 from flask import Flask, render_template
 import requests
-import pandas as pd
-import plotly.graph_objects as go
-from datetime import datetime, timedelta
+from datetime import timedelta
 #teste
 app = Flask(__name__)
 

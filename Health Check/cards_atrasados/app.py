@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
-
+#teste
 app = Flask(__name__)
 
 def pipefy_send(query):

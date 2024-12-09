@@ -58,6 +58,8 @@ def problemas_fases():
     }
 
     fases_E02 = {
+        '16 - Migração Rápida': '333112395',
+        '21 - Desvio de Entrega': '321106741',
         'Criar Cards filho': '328358733'
     }
 
@@ -81,7 +83,9 @@ def problemas_fases():
             '14 - Criar usuário SWAGGER': timedelta(hours=1)
         },
         'E02': {
-            'Criar Cards filho': timedelta(hours=1)
+            'Criar Cards filho': timedelta(hours=1),
+            '16 - Migração Rápida': timedelta(days=2),
+            '21 - Desvio de Entrega': timedelta(days=2)
         },
         'E03': {
             '21 - Atualizar Omie': timedelta(hours=24)

@@ -67,6 +67,10 @@ def problemas_fases():
         '21 - Atualizar Omie': '311286224'
     }
 
+    fases_TA = {
+        'Migração Rápida':'333129186'
+    }
+
     time_limits = {
         'P8': {
             '00 - Configurar Card': timedelta(hours=1),
@@ -89,6 +93,9 @@ def problemas_fases():
         },
         'E03': {
             '21 - Atualizar Omie': timedelta(hours=24)
+        },
+        'TA': {
+            'Migração Rápida': timedelta(days=2)
         }
     }
 
@@ -96,14 +103,16 @@ def problemas_fases():
         'P8': fases_P8,
         'E01': fases_E01,
         'E02': fases_E02,
-        'E03': fases_E03
+        'E03': fases_E03,
+        'TA': fases_TA
     }
 
     stuck_cards = {
         'P8': [],
         'E01':[],
         'E02':[],
-        'E03':[]
+        'E03':[],
+        'TA':[]
     }
 
     for pipe, fases in pipes.items():

@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problemas P8, E01, E02 e E03</title>
+    <title>Problemas P8, E01, E02, E03 e TA</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
+            height: 100%;
             margin: 0;
             background-color: #f4f4f4;
+            background-image: url('{{ url_for('static', filename='images/background.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .container {
             width: 90%;
@@ -35,10 +44,12 @@
             text-align: center;
             margin-bottom: 20px;
             color: green;
-            text-size-adjust: 100px;
+            text-size-adjust: 20px;
+            text-transform: capitalize;
         }
         table {
             width: 100%;
+            max-width: 100%;
             border-collapse: collapse;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -99,7 +110,8 @@
             text-align: center;
         }
         .tempo-column {
-            width: 150px; /* Defina a largura desejada aqui */
+            width: 150px;
+            max-width: 150px;
             text-align: center;
             color: white;
             font-weight: bold;
@@ -107,6 +119,14 @@
         .hidden {
             display: none;
         }
+
+        .logo {
+            position:static;
+            top: 20px;
+            left: 100px;
+            width: 150px;
+        }
+
         #comment-modal textarea, #payment-modal input[type="date"], #payment-modal input[type="file"] {
             font-size: 14px;
             border: 1px solid #ccc;
@@ -136,6 +156,7 @@
         #cancel-btn:hover, #cancel-payment-btn:hover {
             background-color: #ddd;
         }
+
     </style>
     <script>
         function refreshPage() {
@@ -145,6 +166,7 @@
     </script>
 </head>
 <body>
+    <img src="{{ url_for('static', filename='images/amlabs_logo.jpg') }}" alt="Company Logo" class="logo">
     <div class="container">
         <h1>Cards Atrasados</h1>
         {% for pipe, cards in stuck_cards.items() %}
